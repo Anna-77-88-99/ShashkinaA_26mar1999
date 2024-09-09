@@ -32,6 +32,7 @@ class DataUi:
     def increase_value(self) -> str:
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'span[class="plus_prod"]')))
         self.driver.find_element(By.CSS_SELECTOR, 'span[class="plus_prod"]').click()
+        WebDriverWait(self.driver, 10).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, 'span[class="price_ti"]'), "2800"))
         txt = self.driver.find_element(By.CSS_SELECTOR, 'span[class="price_ti"]').text
         return txt
     
